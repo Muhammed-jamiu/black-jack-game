@@ -26,13 +26,19 @@ body {
     align-items: center;
     border-radius: 10px;
 }
-
+small{
+    position: absolute;
+    top: 120px;
+    text-align: start;
+    
+}
 .player-name{
     margin-bottom: 20px;
 }
 h1 {
     color: goldenrod;
     text-transform: uppercase;
+    text-decoration: underline;
 }
 
 #message-el {
