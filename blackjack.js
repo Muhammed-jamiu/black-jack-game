@@ -13,11 +13,12 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
-// let newCards = document.getElementById("#newCard")
+let playerElName=document.getElementById("player-el-name")
+
 let newCards = document.querySelector("#newCards");
 
 
-playerEl.textContent = player.name + ": $" + player.chips
+
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -36,10 +37,12 @@ function startGame() {
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
-    renderGame()
     if (sum<21) {
-        newCards.style.display="block"
+        newCards.style.display = "block"
     }
+    renderGame()
+    handelePlayer()
+    
 
 }
 
@@ -60,6 +63,10 @@ function renderGame() {
         isAlive = false
     }
     messageEl.textContent = message
+
+    if (sum===21) {
+        playerElName.style.display="block"
+    }
 }
 
 
@@ -70,10 +77,36 @@ function newCard() {
         cards.push(card)
         renderGame()        
     } else if (sum>=21) {
-        
-        newCards.style.display="none"
+        newCards.style.display = "none"
     }
 }
 
-//the function below works like this
-//the  NEW CARD btn will disappear when the sum of the card is === 21 or greater than 21.
+/////new feature added section
+let playersList = ["Muhammed Jamiu", "Musa", "Hashid", "Abbas", "Abdulhakeem", "Abdulrahim", "Anate", "Khadijat", "Nafisat", "Luqman"]
+let amountsList = ["$200", "$170", "$270", "$100", "$360", "$50", "$110", "$200", "$70", "$140"]
+
+
+
+function playerDetails() {
+    const randomPlayerList = Math.floor(Math.random() * playersList.length);
+    const randomAmountList = Math.floor(Math.random() * amountsList.length);
+
+    let activePlayer=playersList[randomPlayerList]
+    let activeAmount=amountsList[randomAmountList]
+    
+    playerEl.textContent = `${activePlayer}`
+    playerElName.textContent=`${activeAmount}`
+}
+playerDetails()
+
+
+function handelePlayer() {
+    if (sum<21) {
+        playerEl.style.display="block"
+    } else if (sum === 21) {
+        playerElName.style.display="block"
+    }
+}
+
+
+

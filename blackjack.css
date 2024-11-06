@@ -32,8 +32,14 @@ small{
     text-align: start;
     
 }
+.emoji{
+    color: red;
+    display: flex;
+    gap: 30px;
+}
 .player-name{
     margin-bottom: 20px;
+    /* display: none; */
 }
 h1 {
     color: goldenrod;
@@ -66,5 +72,39 @@ button:hover{
 #newCards{
     border: #016f32 solid 2px;
     border-radius: 10px;
+    margin-bottom: 10px;
     /* display:none; */
+}
+/* .player-el-name{
+    color: green;
+} */
+.result{
+    color: white;
+    display: flex;
+    align-items:baseline;
+    gap: 10px;
+}
+
+#player-el{
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+    display: flex;
+    display: none;
+}
+
+.player-el-name{
+    color: green;
+    display: none;
+}
+/*playerDetails section*/
+.player-details{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+}
+.player-details span{
+    color: skyblue;
+    font-style: italic;
+    font-size: 15px;
 }
